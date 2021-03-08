@@ -16,7 +16,6 @@ CHECKOUT_DIR=$4
 CWD=$(pwd)
 CACHE_FOLDER=${HOME}/.vmrcache/${REPO_NAME}
 
-# TODO: write code that checks if the folder already exists and that it's remote is just like the GIT_URL
 export GIT_DIR=${CACHE_FOLDER}/.git
 
 set -e
@@ -28,8 +27,6 @@ then
     git init
     git remote add origin $GIT_URL
     git fetch 
-    cd $(mktemp -d)
-    #git checkout $GIT_COMMIT # must perform some checkout for some reason, need to investigate why
 fi
 
 cd $CHECKOUT_DIR
